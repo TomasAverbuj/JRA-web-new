@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotizar — JRA Web Design LLC</title>
+  <meta name="description" content="Cuéntanos tu negocio y recibe una cotización de JRA Web Design. Web desde $299.">
+  <link rel="icon" href="assets/img/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="cotizar">
+  <div id="site-header"></div>
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="hero-waves" data-gradient-waves aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow">Brief</p>
+        <h1>Preguntas para tu página web.</h1>
+        <p>Con esta información preparamos una propuesta precisa. También puedes escribirnos por WhatsApp al (787) 320-2552.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:760px">
+        <form class="info-card" data-jra-form>
+          <div class="form-grid">
+            <div class="form-row">
+              <label>Nombre de negocio<input name="negocio" required></label>
+              <label>Nombre del propietario<input name="propietario" required></label>
+            </div>
+            <div class="form-row">
+              <label>Email<input type="email" name="email" required></label>
+              <label>Teléfono<input type="tel" name="telefono" required></label>
+            </div>
+            <label>Industria / tipo de negocio<input name="industria" required></label>
+            <label>¿Qué productos o servicios ofreces?<textarea name="oferta" required></textarea></label>
+            <label>¿Cómo te gustaría que se llamara el sitio? (.com)<input name="dominio" placeholder="tunegocio.com"></label>
+            <label>¿Tienes imágenes para la página?
+              <select name="imagenes">
+                <option>Sí</option>
+                <option>No</option>
+                <option>Prefiero que las busquen ustedes</option>
+              </select>
+            </label>
+            <label>Presupuesto mensual para invertir en el negocio<input name="presupuesto"></label>
+            <label>¿Prefieres comunicación por?
+              <select name="canal">
+                <option>WhatsApp</option>
+                <option>Email</option>
+                <option>Llamada</option>
+              </select>
+            </label>
+            <label>Plan de interés
+              <select name="plan">
+                <option>Presencia Esencial — desde $299</option>
+                <option>Full Negocios — desde $400</option>
+                <option>Elite Corporativo — desde $600</option>
+                <option>Tienda Pro WordPress — desde $399</option>
+                <option>E-commerce Premium — desde $699</option>
+                <option>Mantenimiento Web Care</option>
+                <option>Aún no lo sé</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Enviar brief</button>
+            <div class="form-success" role="status"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/gradient-waves.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
