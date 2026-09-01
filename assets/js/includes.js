@@ -1,112 +1,59 @@
 (function () {
   const page = document.body.getAttribute("data-page") || "";
 
-  window.__JRA_FALLBACKS = {
-    "site-header": `<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="site-header" id="masthead">
-  <div class="header-inner">
-    <a class="brand" href="index.html" aria-label="JRA Web Design — Inicio">
-      <img src="assets/img/logo/jra-logo.png" alt="JRA web design">
-    </a>
-    <nav class="nav" id="site-nav" aria-label="Principal">
-      <a href="index.html" data-nav="home">Inicio</a>
-      <a href="nosotros.html" data-nav="nosotros">Nosotros</a>
-      <div class="nav-drop">
-        <button type="button" aria-expanded="false">Servicios</button>
-        <div class="nav-drop-menu">
-          <a href="diseno-web.html">Diseño Web</a>
-          <a href="diseno-grafico.html">Diseño Gráfico</a>
-          <a href="consultoria.html">Transformación Digital</a>
-          <a href="fotografia-video.html">Fotografía y Video</a>
-          <a href="mantenimiento.html">Mantenimiento Web</a>
-          <a href="google-ads.html">Google Ads</a>
-          <a href="servicios.html">Ver todos</a>
-        </div>
-      </div>
-      <a href="index.html#proyectos" data-nav="proyectos">Proyectos</a>
-      <a href="precios.html" data-nav="precios">Precios</a>
-      <a href="contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
-    <div class="header-cta">
-      <a class="btn btn-ghost" href="https://wa.me/17873202552" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-light" href="cotizar.html">Cotiza ahora</a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" data-menu-toggle>
-        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-</header>`,
-    "site-footer": `<section class="cta-band">
-  <div class="container inner" style="padding:64px 0">
-    <div>
-      <p class="eyebrow">Hablemos</p>
-      <h2 style="margin-top:12px">Tu página web debería pagarse sola.</h2>
-      <p class="lead" style="margin-top:12px">Diseñamos sistemas digitales para atraer, convertir y hacer crecer tu negocio en Puerto Rico.</p>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="cotizar.html">Cotiza ahora</a>
-      <a class="btn btn-ghost" href="precios.html">Ver precios</a>
-    </div>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <img src="assets/img/logo/jra-logo.png" alt="JRA web design">
-      <p>Agencia de diseño web, marketing y transformación digital. Dándole vida a tu idea desde Hormigueros, Puerto Rico.</p>
-      <div class="socials">
-        <a href="https://www.facebook.com/JRAWebDesign" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-1c0-.6.4-1 1-1z"/></svg></a>
-        <a href="https://www.instagram.com/_jrawebdesign/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5.2A3.8 3.8 0 1 0 15.8 12 3.8 3.8 0 0 0 12 8.2zm0 6.2A2.4 2.4 0 1 1 14.4 12 2.4 2.4 0 0 1 12 14.4zM17.5 6.5a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
-        <a href="https://www.youtube.com/@Jrawebstudios" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.5v-6.6l6.3 3.3z"/></svg></a>
-        <a href="https://www.tiktok.com/@jrawebdesignllc" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 9.3a7.4 7.4 0 0 1-4.3-1.4v6.5A6.1 6.1 0 1 1 8.2 8.4c.6 0 1.1.1 1.6.2v3.1a3.1 3.1 0 1 0 2.2 3V3h3.1c.3 2.4 1.8 4.2 4 4.6z"/></svg></a>
-      </div>
-    </div>
-    <div>
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="diseno-web.html">Diseño Web</a></li>
-        <li><a href="diseno-grafico.html">Diseño Gráfico</a></li>
-        <li><a href="consultoria.html">Consultoría Digital</a></li>
-        <li><a href="fotografia-video.html">Fotografía y Video</a></li>
-        <li><a href="mantenimiento.html">Mantenimiento Web</a></li>
-        <li><a href="google-ads.html">Google Ads</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Estudio</h4>
-      <ul>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><a href="index.html#proyectos">Proyectos</a></li>
-        <li><a href="cotizar.html">Cotizar proyecto</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contacto</h4>
-      <ul>
-        <li><a href="tel:+17873202552">+1 (787) 320-2552</a></li>
-        <li><a href="mailto:jrawebdesignllc@gmail.com">jrawebdesignllc@gmail.com</a></li>
-        <li>Hormigueros, Puerto Rico</li>
-        <li>Lunes a Viernes · 9:00 AM – 5:00 PM</li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© <span data-year></span> JRA WEB DESIGN LLC. Todos los derechos reservados.</span>
-    <span>Este sitio no está afiliado a Meta, Facebook o Instagram.</span>
-  </div>
-</footer>
-<a class="wa-float" href="https://wa.me/17873202552" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.3-1.4A11 11 0 0 0 12 23a11 11 0 0 0 8.5-19.5zM12 21a9 9 0 0 1-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3A9 9 0 1 1 12 21zm5-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.4.2-.7 0a7.4 7.4 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3a10.3 10.3 0 0 0 4 3.5c.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z"/></svg>
-</a>`
-  };
+  function siteRoot() {
+    const script = document.querySelector('script[src*="includes.js"]');
+    if (!script) return "./";
+    return script.src.replace(/assets\/js\/includes\.js(\?.*)?$/, "");
+  }
+
+  function partialCandidates(files) {
+    const root = siteRoot();
+    const list = Array.isArray(files) ? files : [files];
+    const urls = [];
+    list.forEach((file) => {
+      urls.push(root + "partials/" + file);
+      urls.push("partials/" + file);
+      urls.push("./partials/" + file);
+      urls.push("/partials/" + file);
+    });
+    return urls;
+  }
+
+  function loadPartialSync(files) {
+    for (const url of partialCandidates(files)) {
+      try {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, false);
+        xhr.send(null);
+        if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText)) {
+          return xhr.responseText;
+        }
+      } catch (err) { /* siguiente ruta */ }
+    }
+    return null;
+  }
+
+  async function loadPartial(files) {
+    let lastError;
+    for (const url of partialCandidates(files)) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) return await res.text();
+      } catch (err) {
+        lastError = err;
+      }
+    }
+    const sync = loadPartialSync(files);
+    if (sync) return sync;
+    throw lastError || new Error("No se pudo cargar partial");
+  }
 
   function setActive(root) {
     root.querySelectorAll("[data-nav]").forEach((el) => {
       if (el.getAttribute("data-nav") === page) el.classList.add("is-active");
     });
-    if (["servicios","diseno-web","diseno-grafico","consultoria","fotografia","mantenimiento","google-ads"].includes(page)) {
+    if (["servicios", "diseno-web", "diseno-grafico", "consultoria", "fotografia", "mantenimiento", "google-ads"].includes(page)) {
       const btn = root.querySelector(".nav-drop > button");
       if (btn) btn.style.color = "#fff";
     }
@@ -116,12 +63,87 @@
     const header = root.querySelector(".site-header");
     const nav = root.querySelector("#site-nav");
     const toggle = root.querySelector("[data-menu-toggle]");
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
+    const closeBtn = root.querySelector("[data-menu-close]");
+    const backdrop = root.querySelector("[data-nav-backdrop]");
+    const drops = root.querySelectorAll(".nav-drop");
+
+    function closeMenu() {
+      if (!nav) return;
+      nav.classList.remove("is-open");
+      document.body.classList.remove("nav-open");
+      if (toggle) {
+        toggle.classList.remove("is-active");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+      }
+      if (backdrop) {
+        backdrop.classList.remove("is-visible");
+        backdrop.setAttribute("aria-hidden", "true");
+      }
     }
+
+    function openMenu() {
+      if (!nav) return;
+      nav.classList.add("is-open");
+      document.body.classList.add("nav-open");
+      if (toggle) {
+        toggle.classList.add("is-active");
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Cerrar menú");
+      }
+      if (backdrop) {
+        backdrop.classList.add("is-visible");
+        backdrop.setAttribute("aria-hidden", "false");
+      }
+    }
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        if (nav.classList.contains("is-open")) closeMenu();
+        else openMenu();
+      });
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (backdrop) backdrop.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    drops.forEach((drop) => {
+      const btn = drop.querySelector("button");
+      if (!btn) return;
+      btn.addEventListener("click", (e) => {
+        if (window.matchMedia("(max-width: 1100px)").matches) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = drop.classList.contains("open");
+          drops.forEach((d) => d.classList.remove("open"));
+          if (!isOpen) drop.classList.add("open");
+          btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+          return;
+        }
+        const open = btn.getAttribute("aria-expanded") === "true";
+        drops.forEach((d) => {
+          const b = d.querySelector("button");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+        btn.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1100) closeMenu();
+    }, { passive: true });
+
     window.addEventListener("scroll", () => {
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
     }, { passive: true });
+
     setActive(root);
   }
 
@@ -131,19 +153,22 @@
     });
   }
 
-  async function inject(id, file, binder) {
+  async function inject(id, files, binder) {
     const mount = document.getElementById(id);
     if (!mount) return;
+    let html = null;
     try {
-      const res = await fetch(file);
-      if (!res.ok) throw new Error("fetch");
-      mount.innerHTML = await res.text();
+      html = await loadPartial(files);
     } catch (err) {
-      mount.innerHTML = window.__JRA_FALLBACKS[id] || "";
+      html = loadPartialSync(files);
+      if (!html) console.error("[JRA includes]", files, err);
     }
-    binder(mount);
+    if (html) {
+      mount.innerHTML = html;
+      binder(mount);
+    }
   }
 
-  inject("site-header", "partials/header.html", bindHeader);
-  inject("site-footer", "partials/footer.html", bindFooter);
+  inject("site-header", ["navbar.html", "header.html"], bindHeader);
+  inject("site-footer", ["footer.html"], bindFooter);
 })();
