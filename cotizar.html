@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body data-page="cotizar">
-              <!-- jra:css -->
+                  <!-- jra:css -->
   <style id="jra-css">
   /*
   Theme Name: JRA Web Design
@@ -483,9 +483,9 @@
   .navy-soft { background: var(--navy-2); }
 
   .marquee-wrap {
-    border-block: 1px solid var(--line);
-    background: var(--navy-2);
-    padding: 28px 0;
+    border-block: 1px solid rgba(18, 32, 43, 0.08);
+    background: #f3f5f6;
+    padding: 32px 0;
     overflow: hidden;
   }
   .marquee {
@@ -500,15 +500,15 @@
     width: auto;
     max-width: 168px;
     object-fit: contain;
-    opacity: 0.92;
+    opacity: 0.88;
     transition: opacity 0.3s;
     flex-shrink: 0;
   }
   .marquee img:hover { opacity: 1; }
   .marquee img[alt="ePumps Solutions"],
   .marquee img[src*="epumps-logo"] {
-    height: 52px;
-    max-width: 160px;
+    height: 56px;
+    max-width: 180px;
   }
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -940,6 +940,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+  }
+  .projects-carousel {
+    position: relative;
+    width: 100%;
+  }
+  .projects-carousel__arrow,
+  .projects-carousel__dots {
+    display: none;
   }
   .project-card {
     position: relative;
@@ -2678,6 +2686,10 @@
     .hero-stage { padding-bottom: 40px; }
     .hero-stage-inner { min-height: calc(100svh - var(--header-h) - 96px); width: min(calc(100% - 40px), 1180px); }
     .service-grid, .work-grid, .price-grid, .process, .project-board { grid-template-columns: 1fr 1fr; }
+    .projects-carousel .project-board {
+      display: flex;
+      grid-template-columns: none;
+    }
     .piece-board { grid-template-columns: 1fr 1fr; }
     .team-grid { grid-template-columns: 1fr; }
     .mission-vision-grid {
@@ -2762,6 +2774,86 @@
   .light .process h3 { color: var(--navy); }
   .light .process p { color: #4a5964; }
 
+  @media (max-width: 760px) {
+    .projects-carousel {
+      padding: 0 40px;
+      --pc-gap: 14px;
+    }
+    .projects-carousel .project-board {
+      display: flex;
+      grid-template-columns: none;
+      gap: var(--pc-gap);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      padding-bottom: 4px;
+    }
+    .projects-carousel .project-board::-webkit-scrollbar {
+      display: none;
+    }
+    .projects-carousel .project-card {
+      flex: 0 0 min(86vw, 320px);
+      width: min(86vw, 320px);
+      max-width: 100%;
+      scroll-snap-align: center;
+      aspect-ratio: 4 / 4.45;
+    }
+    .projects-carousel .project-card.is-hidden {
+      display: none;
+    }
+    .projects-carousel__arrow {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 42%;
+      z-index: 3;
+      width: 38px;
+      height: 38px;
+      margin-top: -19px;
+      border: 1px solid var(--line-2);
+      border-radius: 50%;
+      background: rgba(10, 17, 24, 0.92);
+      color: #fff;
+      cursor: pointer;
+      padding: 0;
+    }
+    .projects-carousel__arrow:hover:not(:disabled) {
+      background: var(--teal);
+      color: var(--navy);
+      border-color: var(--teal);
+    }
+    .projects-carousel__arrow:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .projects-carousel__arrow--prev { left: 0; }
+    .projects-carousel__arrow--next { right: 0; }
+    .projects-carousel__dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .projects-carousel__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 0;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.22);
+      cursor: pointer;
+    }
+    .projects-carousel__dot.is-active,
+    .projects-carousel__dot:hover {
+      background: var(--teal);
+    }
+  }
+
   @media (max-width: 640px) {
     :root { --header-h: 72px; }
     .container,
@@ -2795,6 +2887,10 @@
     .service-grid, .work-grid, .price-grid, .process { grid-template-columns: 1fr; }
     .price-grid--duo { grid-template-columns: 1fr; }
     .project-board, .piece-board { grid-template-columns: 1fr 1fr; }
+    .projects-carousel .project-board {
+      display: flex;
+      grid-template-columns: none;
+    }
     .hero-meta { flex-direction: column; align-items: flex-start; }
     .project-card { aspect-ratio: 4 / 4.4; }
     .service-lines a { grid-template-columns: 36px 1fr; }
@@ -2922,6 +3018,14 @@
   @media (max-width: 400px) {
     .header-cta .btn-light { display: none; }
     .project-board, .piece-board { grid-template-columns: 1fr; }
+    .projects-carousel .project-board {
+      display: flex;
+      grid-template-columns: none;
+    }
+    .projects-carousel .project-card {
+      flex: 0 0 88vw;
+      width: 88vw;
+    }
     .photo-grid { grid-template-columns: 1fr; }
   }
 
@@ -3101,7 +3205,7 @@
   <a class="wa-float" href="https://wa.me/17873202552" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.3-1.4A11 11 0 0 0 12 23a11 11 0 0 0 8.5-19.5zM12 21a9 9 0 0 1-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3A9 9 0 1 1 12 21zm5-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.4.2-.7 0a7.4 7.4 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3a10.3 10.3 0 0 0 4 3.5c.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z"/></svg>
   </a>
-              <!-- jra:js -->
+                  <!-- jra:js -->
   <script id="jra-js">
   (function () {
     const pageNode = document.querySelector("[data-page]");
@@ -3302,8 +3406,135 @@
           const show = target === "all" || card.getAttribute("data-cat") === target;
           card.classList.toggle("is-hidden", !show);
         });
+        document.dispatchEvent(new CustomEvent("jra:projects-filter"));
       });
     });
+
+    (function initProjectsMobileSlider() {
+      const boards = Array.from(document.querySelectorAll(".project-board"));
+      if (!boards.length) return;
+
+      const ARROW = {
+        prev: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        next: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      };
+
+      boards.forEach((board) => {
+        if (board.closest(".projects-carousel")) return;
+
+        const wrap = document.createElement("div");
+        wrap.className = "projects-carousel";
+        wrap.setAttribute("aria-roledescription", "carousel");
+        wrap.setAttribute("aria-label", "Proyectos web");
+        board.parentNode.insertBefore(wrap, board);
+        wrap.appendChild(board);
+
+        const prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "projects-carousel__arrow projects-carousel__arrow--prev";
+        prevBtn.setAttribute("aria-label", "Proyecto anterior");
+        prevBtn.innerHTML = ARROW.prev;
+
+        const nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "projects-carousel__arrow projects-carousel__arrow--next";
+        nextBtn.setAttribute("aria-label", "Siguiente proyecto");
+        nextBtn.innerHTML = ARROW.next;
+
+        const dotsWrap = document.createElement("div");
+        dotsWrap.className = "projects-carousel__dots";
+        dotsWrap.setAttribute("role", "tablist");
+        dotsWrap.setAttribute("aria-label", "Ir a proyecto");
+
+        wrap.append(prevBtn, nextBtn, dotsWrap);
+
+        let index = 0;
+        let dots = [];
+
+        function visibleCards() {
+          return Array.from(board.querySelectorAll(".project-card")).filter(
+            (card) => !card.classList.contains("is-hidden")
+          );
+        }
+
+        function rebuildDots() {
+          const items = visibleCards();
+          dotsWrap.innerHTML = "";
+          dots = items.map((_, i) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "projects-carousel__dot";
+            dot.setAttribute("role", "tab");
+            dot.setAttribute("aria-label", "Proyecto " + (i + 1));
+            dot.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(dot);
+            return dot;
+          });
+          if (index > items.length - 1) index = Math.max(0, items.length - 1);
+          updateUI();
+        }
+
+        function goTo(i, smooth) {
+          const items = visibleCards();
+          if (!items.length) return;
+          index = Math.max(0, Math.min(i, items.length - 1));
+          const target = items[index];
+          const left = target.offsetLeft - (board.clientWidth - target.clientWidth) / 2;
+          board.scrollTo({ left: Math.max(0, left), behavior: smooth === false ? "auto" : "smooth" });
+          updateUI();
+        }
+
+        function updateUI() {
+          const items = visibleCards();
+          prevBtn.disabled = index <= 0;
+          nextBtn.disabled = index >= items.length - 1 || items.length <= 1;
+          dots.forEach((dot, i) => {
+            const active = i === index;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-selected", active ? "true" : "false");
+          });
+        }
+
+        function syncFromScroll() {
+          const items = visibleCards();
+          if (!items.length) return;
+          const mid = board.scrollLeft + board.clientWidth / 2;
+          let best = 0;
+          let bestDist = Infinity;
+          items.forEach((card, i) => {
+            const center = card.offsetLeft + card.clientWidth / 2;
+            const dist = Math.abs(center - mid);
+            if (dist < bestDist) {
+              bestDist = dist;
+              best = i;
+            }
+          });
+          if (best !== index) {
+            index = best;
+            updateUI();
+          }
+        }
+
+        prevBtn.addEventListener("click", () => goTo(index - 1));
+        nextBtn.addEventListener("click", () => goTo(index + 1));
+        board.addEventListener("scroll", () => {
+          window.requestAnimationFrame(syncFromScroll);
+        }, { passive: true });
+
+        document.addEventListener("jra:projects-filter", () => {
+          index = 0;
+          rebuildDots();
+          goTo(0, false);
+        });
+
+        window.addEventListener("resize", () => {
+          goTo(index, false);
+        }, { passive: true });
+
+        rebuildDots();
+        goTo(0, false);
+      });
+    })();
 
     const list = Array.from(document.querySelectorAll(".project-card")).filter(
       (el) => el.tagName !== "A" && el.getAttribute("data-src")

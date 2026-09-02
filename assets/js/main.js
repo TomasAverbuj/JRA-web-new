@@ -197,8 +197,135 @@
         const show = target === "all" || card.getAttribute("data-cat") === target;
         card.classList.toggle("is-hidden", !show);
       });
+      document.dispatchEvent(new CustomEvent("jra:projects-filter"));
     });
   });
+
+  (function initProjectsMobileSlider() {
+    const boards = Array.from(document.querySelectorAll(".project-board"));
+    if (!boards.length) return;
+
+    const ARROW = {
+      prev: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      next: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    };
+
+    boards.forEach((board) => {
+      if (board.closest(".projects-carousel")) return;
+
+      const wrap = document.createElement("div");
+      wrap.className = "projects-carousel";
+      wrap.setAttribute("aria-roledescription", "carousel");
+      wrap.setAttribute("aria-label", "Proyectos web");
+      board.parentNode.insertBefore(wrap, board);
+      wrap.appendChild(board);
+
+      const prevBtn = document.createElement("button");
+      prevBtn.type = "button";
+      prevBtn.className = "projects-carousel__arrow projects-carousel__arrow--prev";
+      prevBtn.setAttribute("aria-label", "Proyecto anterior");
+      prevBtn.innerHTML = ARROW.prev;
+
+      const nextBtn = document.createElement("button");
+      nextBtn.type = "button";
+      nextBtn.className = "projects-carousel__arrow projects-carousel__arrow--next";
+      nextBtn.setAttribute("aria-label", "Siguiente proyecto");
+      nextBtn.innerHTML = ARROW.next;
+
+      const dotsWrap = document.createElement("div");
+      dotsWrap.className = "projects-carousel__dots";
+      dotsWrap.setAttribute("role", "tablist");
+      dotsWrap.setAttribute("aria-label", "Ir a proyecto");
+
+      wrap.append(prevBtn, nextBtn, dotsWrap);
+
+      let index = 0;
+      let dots = [];
+
+      function visibleCards() {
+        return Array.from(board.querySelectorAll(".project-card")).filter(
+          (card) => !card.classList.contains("is-hidden")
+        );
+      }
+
+      function rebuildDots() {
+        const items = visibleCards();
+        dotsWrap.innerHTML = "";
+        dots = items.map((_, i) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "projects-carousel__dot";
+          dot.setAttribute("role", "tab");
+          dot.setAttribute("aria-label", "Proyecto " + (i + 1));
+          dot.addEventListener("click", () => goTo(i));
+          dotsWrap.appendChild(dot);
+          return dot;
+        });
+        if (index > items.length - 1) index = Math.max(0, items.length - 1);
+        updateUI();
+      }
+
+      function goTo(i, smooth) {
+        const items = visibleCards();
+        if (!items.length) return;
+        index = Math.max(0, Math.min(i, items.length - 1));
+        const target = items[index];
+        const left = target.offsetLeft - (board.clientWidth - target.clientWidth) / 2;
+        board.scrollTo({ left: Math.max(0, left), behavior: smooth === false ? "auto" : "smooth" });
+        updateUI();
+      }
+
+      function updateUI() {
+        const items = visibleCards();
+        prevBtn.disabled = index <= 0;
+        nextBtn.disabled = index >= items.length - 1 || items.length <= 1;
+        dots.forEach((dot, i) => {
+          const active = i === index;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+
+      function syncFromScroll() {
+        const items = visibleCards();
+        if (!items.length) return;
+        const mid = board.scrollLeft + board.clientWidth / 2;
+        let best = 0;
+        let bestDist = Infinity;
+        items.forEach((card, i) => {
+          const center = card.offsetLeft + card.clientWidth / 2;
+          const dist = Math.abs(center - mid);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
+          }
+        });
+        if (best !== index) {
+          index = best;
+          updateUI();
+        }
+      }
+
+      prevBtn.addEventListener("click", () => goTo(index - 1));
+      nextBtn.addEventListener("click", () => goTo(index + 1));
+      board.addEventListener("scroll", () => {
+        window.requestAnimationFrame(syncFromScroll);
+      }, { passive: true });
+
+      document.addEventListener("jra:projects-filter", () => {
+        index = 0;
+        rebuildDots();
+        goTo(0, false);
+      });
+
+      window.addEventListener("resize", () => {
+        goTo(index, false);
+      }, { passive: true });
+
+      rebuildDots();
+      goTo(0, false);
+    });
+  })();
 
   const list = Array.from(document.querySelectorAll(".project-card")).filter(
     (el) => el.tagName !== "A" && el.getAttribute("data-src")

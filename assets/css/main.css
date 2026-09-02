@@ -468,9 +468,9 @@ section { padding: 92px 0; }
 .navy-soft { background: var(--navy-2); }
 
 .marquee-wrap {
-  border-block: 1px solid var(--line);
-  background: var(--navy-2);
-  padding: 28px 0;
+  border-block: 1px solid rgba(18, 32, 43, 0.08);
+  background: #f3f5f6;
+  padding: 32px 0;
   overflow: hidden;
 }
 .marquee {
@@ -485,15 +485,15 @@ section { padding: 92px 0; }
   width: auto;
   max-width: 168px;
   object-fit: contain;
-  opacity: 0.92;
+  opacity: 0.88;
   transition: opacity 0.3s;
   flex-shrink: 0;
 }
 .marquee img:hover { opacity: 1; }
 .marquee img[alt="ePumps Solutions"],
 .marquee img[src*="epumps-logo"] {
-  height: 52px;
-  max-width: 160px;
+  height: 56px;
+  max-width: 180px;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -925,6 +925,14 @@ a.piece-card:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+}
+.projects-carousel {
+  position: relative;
+  width: 100%;
+}
+.projects-carousel__arrow,
+.projects-carousel__dots {
+  display: none;
 }
 .project-card {
   position: relative;
@@ -2663,6 +2671,10 @@ body.nav-open { overflow: hidden; }
   .hero-stage { padding-bottom: 40px; }
   .hero-stage-inner { min-height: calc(100svh - var(--header-h) - 96px); width: min(calc(100% - 40px), 1180px); }
   .service-grid, .work-grid, .price-grid, .process, .project-board { grid-template-columns: 1fr 1fr; }
+  .projects-carousel .project-board {
+    display: flex;
+    grid-template-columns: none;
+  }
   .piece-board { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .mission-vision-grid {
@@ -2747,6 +2759,86 @@ body[data-page="cotizar"] .cta-band,
 .light .process h3 { color: var(--navy); }
 .light .process p { color: #4a5964; }
 
+@media (max-width: 760px) {
+  .projects-carousel {
+    padding: 0 40px;
+    --pc-gap: 14px;
+  }
+  .projects-carousel .project-board {
+    display: flex;
+    grid-template-columns: none;
+    gap: var(--pc-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    padding-bottom: 4px;
+  }
+  .projects-carousel .project-board::-webkit-scrollbar {
+    display: none;
+  }
+  .projects-carousel .project-card {
+    flex: 0 0 min(86vw, 320px);
+    width: min(86vw, 320px);
+    max-width: 100%;
+    scroll-snap-align: center;
+    aspect-ratio: 4 / 4.45;
+  }
+  .projects-carousel .project-card.is-hidden {
+    display: none;
+  }
+  .projects-carousel__arrow {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 42%;
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    border: 1px solid var(--line-2);
+    border-radius: 50%;
+    background: rgba(10, 17, 24, 0.92);
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+  }
+  .projects-carousel__arrow:hover:not(:disabled) {
+    background: var(--teal);
+    color: var(--navy);
+    border-color: var(--teal);
+  }
+  .projects-carousel__arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .projects-carousel__arrow--prev { left: 0; }
+  .projects-carousel__arrow--next { right: 0; }
+  .projects-carousel__dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .projects-carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.22);
+    cursor: pointer;
+  }
+  .projects-carousel__dot.is-active,
+  .projects-carousel__dot:hover {
+    background: var(--teal);
+  }
+}
+
 @media (max-width: 640px) {
   :root { --header-h: 72px; }
   .container,
@@ -2780,6 +2872,10 @@ body[data-page="cotizar"] .cta-band,
   .service-grid, .work-grid, .price-grid, .process { grid-template-columns: 1fr; }
   .price-grid--duo { grid-template-columns: 1fr; }
   .project-board, .piece-board { grid-template-columns: 1fr 1fr; }
+  .projects-carousel .project-board {
+    display: flex;
+    grid-template-columns: none;
+  }
   .hero-meta { flex-direction: column; align-items: flex-start; }
   .project-card { aspect-ratio: 4 / 4.4; }
   .service-lines a { grid-template-columns: 36px 1fr; }
@@ -2907,5 +3003,13 @@ body[data-page="cotizar"] .cta-band,
 @media (max-width: 400px) {
   .header-cta .btn-light { display: none; }
   .project-board, .piece-board { grid-template-columns: 1fr; }
+  .projects-carousel .project-board {
+    display: flex;
+    grid-template-columns: none;
+  }
+  .projects-carousel .project-card {
+    flex: 0 0 88vw;
+    width: 88vw;
+  }
   .photo-grid { grid-template-columns: 1fr; }
 }
