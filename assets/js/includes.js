@@ -140,9 +140,11 @@
       if (window.innerWidth > 1100) closeMenu();
     }, { passive: true });
 
-    window.addEventListener("scroll", () => {
+    const updateHeader = () => {
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
-    }, { passive: true });
+    };
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
 
     setActive(root);
   }
