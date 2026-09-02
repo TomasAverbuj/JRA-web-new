@@ -24,7 +24,7 @@
       e.preventDefault();
       const data = new FormData(form);
       const lines = [
-        "Hola JRA, quiero solicitar un presupuesto.",
+        "Hola JRA, quiero solicitar un servicio.",
         "",
         "Negocio: " + (data.get("negocio") || ""),
         "Email: " + (data.get("email") || ""),
