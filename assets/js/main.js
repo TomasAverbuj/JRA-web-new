@@ -79,7 +79,9 @@
     });
   });
 
-  const list = Array.from(document.querySelectorAll(".project-card"));
+  const list = Array.from(document.querySelectorAll(".project-card")).filter(
+    (el) => el.tagName !== "A" && el.getAttribute("data-src")
+  );
   const panes = document.querySelectorAll(".hero-pane");
   if (list.length || panes.length) {
     const viewer = document.createElement("div");
