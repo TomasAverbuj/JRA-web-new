@@ -57,11 +57,6 @@ function embedHtml(cssBlock, jsBlock) {
     const pageMatch = text.match(/<body[^>]*data-page="([^"]+)"/);
     const page = pageMatch ? pageMatch[1] : "";
 
-    text = text.replace(
-      /<header class="site-header" id="masthead"(?: data-page="[^"]*")?>/,
-      `<header class="site-header" id="masthead" data-page="${page}">`
-    );
-
     if (page === "contacto" || page === "cotizar") {
       text = text.replace('<section class="cta-band">', '<section class="cta-band cta-band--off">');
     }

@@ -1,11 +1,25 @@
 (function () {
-  const REVIEW_ITEMS = Array.from({ length: 15 }, (_, i) => {
-    const n = String(i + 1).padStart(2, "0");
-    return {
-      image: "/assets/img/reviews/review-" + n + ".jpg",
-      alt: "Testimonio de cliente JRA Web Design " + (i + 1)
-    };
-  });
+  const REVIEW_URLS = [
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489569812_1175453974590952_6730638033054107394_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489593314_1178296094306740_6032816767347823302_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489833018_1177871331015883_6904473955855105114_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/490029063_1178296300973386_9038169571525355017_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495023457_1199358985533784_3393113309288238962_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495126560_1199358795533803_4245262677936695402_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495311756_1199360552200294_6293805621016396871_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/672264152_1500195705450109_5330384792191732931_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/672270860_1500195688783444_7069718820678618650_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/679277682_1504563235013356_5110929938590289065_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/487426246_1168672821935734_2656195003099454481_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/487794157_1169468178522865_2684743299325325085_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489260505_1178296184306731_7112710379587701310_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489403638_1175187107950972_5998595923726271055_n.jpg",
+    "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489495661_1175453967924286_5918541860525208970_n.jpg"
+  ];
+  const REVIEW_ITEMS = REVIEW_URLS.map((image, i) => ({
+    image,
+    alt: "Testimonio de cliente JRA Web Design " + (i + 1)
+  }));
 
   const ARROW_SVG = {
     prev: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',

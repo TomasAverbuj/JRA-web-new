@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nosotros — JRA Web Design LLC</title>
   <meta name="description" content="Sobre JRA Web Design LLC: diseño web, gráfico, redes sociales, Google Ads, fotografía y video. Equipo de 7 profesionales en Puerto Rico.">
-  <link rel="icon" href="/assets/img/logo/favicon.png">
+  <link rel="icon" href="https://jrawebdesignllc.com/wp-content/uploads/2022/08/cropped-JRA-LLC-192x192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body data-page="nosotros">
-                        <!-- jra:css -->
+                                          <!-- jra:css -->
   <style id="jra-css">
   /*
   Theme Name: JRA Web Design
@@ -111,7 +111,8 @@
     font-weight: 650;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(29, 185, 141, 0.7);
+    background: rgba(29, 185, 141, 0.12);
     border-radius: var(--radius-pill);
     padding: 7px 14px;
   }
@@ -138,7 +139,7 @@
 
   .lead {
     font-size: 1.12rem;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.92);
     max-width: 58ch;
   }
 
@@ -166,17 +167,26 @@
 
   .btn-primary {
     background: var(--teal);
-    color: var(--navy);
+    color: var(--white);
     box-shadow: 0 10px 28px var(--teal-glow);
   }
-  .btn-primary:hover { background: #2fd4a4; }
+  .btn-primary:hover { background: #2fd4a4; color: var(--white); }
 
   .btn-ghost {
+    background: var(--teal);
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: 0 10px 28px var(--teal-glow);
+  }
+  .btn-ghost:hover { background: #2fd4a4; color: var(--white); border-color: transparent; }
+
+  .header-cta .btn-ghost {
     background: transparent;
     color: var(--white);
     border-color: var(--line-2);
+    box-shadow: none;
   }
-  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .header-cta .btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: transparent; }
 
   .btn-dark {
     background: var(--navy);
@@ -367,7 +377,7 @@
     inset: 0;
     z-index: -1;
     background:
-      linear-gradient(90deg, rgba(5,8,12,0.94) 0%, rgba(5,8,12,0.72) 48%, rgba(5,8,12,0.35) 100%),
+      linear-gradient(90deg, rgba(5, 8, 12,0.94) 0%, rgba(5, 8, 12,0.72) 48%, rgba(5, 8, 12,0.35) 100%),
       radial-gradient(ellipse at 80% 20%, rgba(29,185,141,0.18), transparent 50%);
   }
   .hero-grid {
@@ -415,7 +425,7 @@
     position: absolute;
     left: 20px;
     bottom: 20px;
-    background: rgba(5,8,12,0.78);
+    background: rgba(5, 8, 12,0.78);
     backdrop-filter: blur(12px);
     border: 1px solid var(--line-2);
     color: var(--white);
@@ -446,7 +456,7 @@
       #05080c;
   }
   .page-hero .container { position: relative; z-index: 1; }
-  .page-hero p { color: var(--muted); max-width: 62ch; margin-top: 16px; }
+  .page-hero p { color: rgba(255, 255, 255, 0.9); max-width: 62ch; margin-top: 16px; }
   .wa-highlight {
     color: var(--teal);
     font-weight: 600;
@@ -467,7 +477,7 @@
     min-width: 0;
     flex: 1 1 auto;
   }
-  .section-head p { color: var(--muted); max-width: 46ch; margin-top: 12px; }
+  .section-head p { color: rgba(255, 255, 255, 0.9); max-width: 46ch; margin-top: 12px; }
 
   .light {
     background: var(--cream);
@@ -477,7 +487,8 @@
   .light p, .light .lead { color: #4a5964; }
   .light .eyebrow {
     color: var(--navy);
-    border-color: rgba(18, 32, 43, 0.22);
+    border-color: rgba(29, 185, 141, 0.55);
+    background: rgba(29, 185, 141, 0.12);
   }
 
   .navy-soft { background: var(--navy-2); }
@@ -506,7 +517,7 @@
   }
   .marquee img:hover { opacity: 1; }
   .marquee img[alt="ePumps Solutions"],
-  .marquee img[src*="epumps-logo"] {
+  .marquee img[src*="Blanco_sinfondo"] {
     height: 56px;
     max-width: 180px;
   }
@@ -547,7 +558,7 @@
   }
   .service-card .body { position: relative; z-index: 1; margin-top: auto; }
   .service-card h3 { margin: 8px 0 8px; }
-  .service-card p { color: var(--muted); }
+  .service-card p { color: rgba(255, 255, 255, 0.9); }
   .service-card .go {
     display: inline-flex;
     margin-top: 16px;
@@ -599,7 +610,7 @@
     position: absolute;
     inset: auto 0 0 0;
     padding: 22px 20px 18px;
-    background: linear-gradient(transparent, rgba(5,8,12,0.92));
+    background: linear-gradient(transparent, rgba(5, 8, 12,0.92));
   }
   .work-card small {
     color: var(--teal);
@@ -768,7 +779,7 @@
     gap: 10px;
   }
   .studio-copy p {
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.94);
     font-size: 0.92rem;
     line-height: 1.58;
     max-width: none;
@@ -778,7 +789,7 @@
     padding-top: 14px;
     border-top: 1px solid var(--line);
   }
-  .studio-card p { color: var(--muted); max-width: 42ch; }
+  .studio-card p { color: rgba(255, 255, 255, 0.9); max-width: 42ch; }
   .studio-card .btn { align-self: flex-start; }
   .studio-card.is-photo {
     position: relative;
@@ -800,7 +811,7 @@
     position: absolute;
     inset: auto 0 0 0;
     padding: 24px 26px;
-    background: linear-gradient(180deg, transparent, rgba(5,8,12,0.9) 55%);
+    background: linear-gradient(180deg, transparent, rgba(5, 8, 12,0.9) 55%);
   }
   .studio-card.is-photo h2 { margin: 6px 0 4px; font-size: clamp(1.35rem, 2.1vw, 1.8rem); }
   .studio-stats {
@@ -809,15 +820,25 @@
     gap: 16px;
     margin-top: 8px;
   }
+  .studio-stats > div {
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
   .studio-stats b {
     display: block;
     font-family: var(--font-d);
     font-size: 1.55rem;
-    color: var(--white);
+    color: var(--teal);
     letter-spacing: -0.04em;
     line-height: 1;
   }
-  .studio-stats span { color: var(--muted); font-size: 0.8rem; }
+  .studio-stats span {
+    color: var(--white);
+    font-size: 0.8rem;
+    line-height: 1.25;
+    display: block;
+  }
 
   .piece-board {
     display: grid;
@@ -923,7 +944,7 @@
     align-items: end;
   }
   .projects-head h2 { max-width: 28ch; }
-  .projects-head p { color: var(--muted); max-width: 42ch; }
+  .projects-head p { color: rgba(255, 255, 255, 0.9); max-width: 42ch; }
 
   .work-filters {
     display: flex;
@@ -945,11 +966,11 @@
     font-weight: 650;
     transition: 0.2s var(--ease);
   }
-  .work-filters button:hover { border-color: #fff; }
+  .work-filters button:hover { border-color: var(--teal); color: var(--white); }
   .work-filters button.is-active {
-    background: #fff;
-    color: var(--navy);
-    border-color: #fff;
+    background: var(--teal);
+    color: var(--white);
+    border-color: var(--teal);
   }
 
   .project-board {
@@ -1199,7 +1220,7 @@
   .project-viewer-stage {
     overflow: auto;
     max-height: 64vh;
-    background: #000;
+    background: #05080c;
   }
   .project-viewer-stage img {
     width: 100%;
@@ -1954,12 +1975,13 @@
   .price-switch {
     display: inline-flex;
     flex-wrap: wrap;
-    background: var(--navy-3);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(29, 185, 141, 0.4);
     border-radius: var(--radius-pill);
     padding: 5px;
     gap: 4px;
     margin: 8px 0 28px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   }
   .price-switch--sub {
     margin-top: 0;
@@ -1969,17 +1991,23 @@
   .price-switch button {
     border: 0;
     background: transparent;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.82);
     padding: 10px 16px;
     border-radius: var(--radius-pill);
     cursor: pointer;
     font-family: var(--font-d);
     font-weight: 650;
     white-space: nowrap;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+  .price-switch button:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
   }
   .price-switch button.is-active {
     background: var(--teal);
-    color: var(--navy);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(29, 185, 141, 0.35);
   }
   .price-cat-panel { display: none; }
   .price-cat-panel.is-active { display: block; }
@@ -2004,7 +2032,7 @@
     font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   }
   .price-list-card__head p:last-child {
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
   }
   .price-list {
@@ -2101,7 +2129,7 @@
     top: 16px;
     right: 16px;
     background: var(--teal);
-    color: var(--navy);
+    color: var(--white);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -2118,7 +2146,7 @@
     text-transform: uppercase;
   }
   .price-card h3 { margin: 8px 0 6px; font-size: 1.7rem; }
-  .price-card .from { color: var(--muted); font-size: 0.9rem; }
+  .price-card .from { color: rgba(255, 255, 255, 0.82); font-size: 0.9rem; }
   .price-card .amount {
     font-family: var(--font-d);
     font-size: 2.7rem;
@@ -2126,13 +2154,13 @@
     letter-spacing: -0.04em;
     margin: 10px 0 6px;
   }
-  .price-card .amount span { font-size: 1rem; color: var(--muted); font-weight: 500; }
+  .price-card .amount span { font-size: 1rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
   .price-card .note { color: var(--teal); font-size: 0.88rem; margin-bottom: 16px; }
   .price-card ul {
     display: grid;
     gap: 9px;
     margin: 8px 0 22px;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.9);
   }
   .price-card li {
     padding-left: 22px;
@@ -2182,7 +2210,7 @@
     margin-bottom: 12px;
   }
   .process h3 { margin-bottom: 8px; }
-  .process p { color: var(--muted); }
+  .process p { color: rgba(255, 255, 255, 0.9); }
 
   .split {
     display: grid;
@@ -2489,22 +2517,6 @@
   }
   .info-card + .info-card { margin-top: 14px; }
   .info-card b { display: block; font-family: var(--font-d); margin-bottom: 4px; }
-
-  .wa-float {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 70;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: #25d366;
-    color: white;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 12px 30px rgba(37,211,102,0.4);
-  }
-  .wa-float svg { width: 30px; height: 30px; }
 
   .reveal {
     opacity: 0;
@@ -2973,12 +2985,51 @@
     }
     .service-catalog { grid-template-columns: 1fr; }
     .price-switch {
+      position: relative;
       width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 6px;
+      gap: 6px;
+      margin-bottom: 40px;
+      border-radius: 18px;
+      border-color: rgba(29, 185, 141, 0.5);
+      background: rgba(8, 14, 20, 0.9);
     }
+    .price-switch::-webkit-scrollbar { display: none; }
     .price-switch button {
-      flex: 1 1 calc(50% - 4px);
+      flex: 1 0 auto;
+      min-width: max-content;
       text-align: center;
-      padding: 10px 12px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.78);
+      border: 1px solid transparent;
+    }
+    .price-switch button.is-active {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-1px);
+    }
+    .price-switch::after {
+      content: "Toca o desliza para cambiar de paquete";
+      position: absolute;
+      left: 2px;
+      right: 2px;
+      bottom: -24px;
+      font-size: 0.7rem;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+    .price-switch--sub {
+      margin-bottom: 40px;
+    }
+    .price-switch--sub::after {
+      content: "Toca para cambiar de plan";
     }
     .hero-stats { grid-template-columns: 1fr; }
     .brand img { height: 40px; }
@@ -3006,7 +3057,20 @@
     .service-lines a { grid-template-columns: 36px 1fr; }
     .service-lines .hint { display: none; }
     .page-hero-split.split img { max-height: 320px; }
-    .studio-stats { flex-direction: column; gap: 14px; }
+    .studio-stats {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .studio-stats > div {
+      gap: 2px;
+    }
+    .studio-stats b {
+      font-size: 1.4rem;
+    }
+    .studio-stats span {
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
     .studio-copy p { font-size: 0.9rem; }
     .studio-card.is-photo { min-height: 360px; }
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -3056,13 +3120,6 @@
     }
     .contact-info { padding: 22px 18px; }
     .info-card { padding: 18px; }
-    .wa-float {
-      right: 14px;
-      bottom: 14px;
-      width: 52px;
-      height: 52px;
-    }
-    .wa-float svg { width: 26px; height: 26px; }
     .btn-row {
       width: 100%;
       flex-direction: column;
@@ -3145,49 +3202,7 @@
 
   </style>
   <!-- /jra:css -->
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header" id="masthead" data-page="nosotros">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="JRA Web Design — Inicio">
-        <img src="/assets/img/logo/jra-logo.png" alt="JRA web design">
-      </a>
-      <nav class="nav" id="site-nav" aria-label="Principal">
-        <div class="nav-drawer-head nav-mobile-only">
-          <span>Menú</span>
-          <button class="nav-close" type="button" aria-label="Cerrar menú" data-menu-close>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-        <a href="index.html" data-nav="home">Inicio</a>
-        <a href="nosotros.html" data-nav="nosotros">Nosotros</a>
-        <div class="nav-drop">
-          <button type="button" aria-expanded="false">Servicios</button>
-          <div class="nav-drop-menu">
-            <a href="diseno-web.html">Diseño Web</a>
-            <a href="diseno-grafico.html">Diseño Gráfico</a>
-            <a href="consultoria.html">Transformación Digital</a>
-            <a href="fotografia-video.html">Fotografía y Video</a>
-            <a href="mantenimiento.html">Mantenimiento Web</a>
-            <a href="google-ads.html">Google Ads</a>
-            <a href="servicios.html">Ver todos</a>
-          </div>
-        </div>
-        <a href="proyectos.html" data-nav="proyectos">Proyectos</a>
-        <a href="precios.html" data-nav="precios">Precios</a>
-        <a href="contacto.html" data-nav="contacto">Contacto</a>
-        <a class="nav-mobile-only" href="https://wa.me/17873202552" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="nav-mobile-only nav-mobile-cta" href="cotizar.html">Cotiza ahora</a>
-      </nav>
-      <div class="header-cta">
-        <a class="btn btn-ghost" href="https://wa.me/17873202552" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-light" href="cotizar.html">Cotiza ahora</a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" data-menu-toggle>
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
-  </header>
+
   <main id="contenido">
     <section class="page-hero">
       <div class="hero-waves" data-gradient-waves aria-hidden="true"></div>
@@ -3202,14 +3217,14 @@
       <div class="container container-wide about-story">
         <div class="about-team-duo">
           <figure class="about-team-photo">
-            <img src="/assets/img/team/javier-rodriguez.png" alt="Javier Rodríguez, fundador de JRA Web Design">
+            <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/FOTO-D-PERFIL-JAVIER-JRA.png" alt="Javier Rodríguez, fundador de JRA Web Design">
             <figcaption>
               <span class="about-team-name">Javier Rodríguez</span>
               <span class="about-team-role">Fundador · Presidente</span>
             </figcaption>
           </figure>
           <figure class="about-team-photo">
-            <img src="/assets/img/team/freddie-jra.png" alt="Freddie Figueroa, vicepresidente de JRA Web Design">
+            <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/FOTO-D-PERFIL-FREDDIE-JRA.png" alt="Freddie Figueroa, vicepresidente de JRA Web Design">
             <figcaption>
               <span class="about-team-name">Freddie Figueroa</span>
               <span class="about-team-role">Vicepresidente</span>
@@ -3255,7 +3270,7 @@
             <p class="lead">En JRA Web Design LLC aspiramos a crecer junto a nuestros clientes, ayudándolos a fortalecer su presencia, adaptarse a las nuevas tecnologías y construir marcas capaces de competir, evolucionar y mantenerse relevantes en un mundo cada vez más digital.</p>
             <div class="btn-row" style="margin-top:8px">
               <a class="btn btn-primary" href="cotizar.html">Quiero cotizar</a>
-              <a class="btn btn-ghost" href="index.html#proyectos">Ver proyectos</a>
+              <a class="btn btn-primary" href="index.html#proyectos">Ver proyectos <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
             </div>
           </div>
         </article>
@@ -3274,35 +3289,35 @@
         <div class="team-roster">
           <article class="team-member">
             <div class="team-member__media">
-              <img src="/assets/img/team/cesar-hernandez.png" alt="Cesar Hernandez, diseñador gráfico">
+              <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/TEAM-JRA-CESAR.png" alt="Cesar Hernandez, diseñador gráfico">
             </div>
             <h3>Cesar Hernandez</h3>
             <p>Diseñador Gráfico</p>
           </article>
           <article class="team-member">
             <div class="team-member__media">
-              <img src="/assets/img/team/luis-guevara.png" alt="Luis Guevara, web designer y Google Expert">
+              <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/TEAM-JRA-LUIS.png" alt="Luis Guevara, web designer y Google Expert">
             </div>
             <h3>Luis Guevara</h3>
             <p>Web Designer · Google Expert</p>
           </article>
           <article class="team-member">
             <div class="team-member__media">
-              <img src="/assets/img/team/joel-perez.png" alt="Joel Pérez Flores, fotógrafo y videógrafo">
+              <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/TEAM-JRA-JOEL.png" alt="Joel Pérez Flores, fotógrafo y videógrafo">
             </div>
             <h3>Joel Pérez Flores</h3>
             <p>Fotógrafo · Videógrafo</p>
           </article>
           <article class="team-member">
             <div class="team-member__media">
-              <img src="/assets/img/team/tomas-averbuj.png" alt="Tomás Averbuj, desarrollador web y experto en Google Ads">
+              <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/TEAM-JRA-TOMAS.png" alt="Tomás Averbuj, desarrollador web y experto en Google Ads">
             </div>
             <h3>Tomás Averbuj</h3>
             <p>Desarrollador Web · Experto en Google Ads</p>
           </article>
           <article class="team-member">
             <div class="team-member__media">
-              <img src="/assets/img/team/luna-bianchi.png" alt="Luna Bianchi, artista gráfica">
+              <img src="https://jrawebdesignllc.com/wp-content/uploads/2026/09/TEAM-JRA-LUNApng.png" alt="Luna Bianchi, artista gráfica">
             </div>
             <h3>Luna Bianchi</h3>
             <p>Artista Gráfica</p>
@@ -3311,90 +3326,8 @@
       </div>
     </section>
   </main>
-  <section class="cta-band">
-    <div class="container inner" style="padding:64px 0">
-      <div>
-        <p class="eyebrow">Pagos</p>
-        <h2 style="margin-top:12px">Acepta Klarna en tu negocio</h2>
-        <p class="lead" style="margin-top:12px">Diseñamos páginas web con hasta 10 métodos de pago diferentes para que puedas convertir y hacer crecer tu negocio rápidamente.</p>
-      </div>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="cotizar.html">Cotiza ahora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
-        <a class="btn btn-ghost" href="precios.html">Ver precios</a>
-      </div>
-    </div>
-  </section>
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="/assets/img/logo/jra-logo.png" alt="JRA web design">
-        <p class="footer-tagline">Dándole vida a tu idea.</p>
-        <p>Agencia de diseño web, marketing y transformación digital en Hormigueros, Puerto Rico.</p>
-        <div class="socials">
-          <a href="https://www.facebook.com/JRAWebDesign" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-1c0-.6.4-1 1-1z"/></svg></a>
-          <a href="https://www.instagram.com/_jrawebdesign/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5.2A3.8 3.8 0 1 0 15.8 12 3.8 3.8 0 0 0 12 8.2zm0 6.2A2.4 2.4 0 1 1 14.4 12 2.4 2.4 0 0 1 12 14.4zM17.5 6.5a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
-          <a href="https://www.youtube.com/@Jrawebstudios" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.5v-6.6l6.3 3.3z"/></svg></a>
-          <a href="https://www.tiktok.com/@jrawebdesignllc" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 9.3a7.4 7.4 0 0 1-4.3-1.4v6.5A6.1 6.1 0 1 1 8.2 8.4c.6 0 1.1.1 1.6.2v3.1a3.1 3.1 0 1 0 2.2 3V3h3.1c.3 2.4 1.8 4.2 4 4.6z"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col footer-services">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="diseno-web.html">Diseño Web</a></li>
-          <li><a href="diseno-grafico.html">Diseño Gráfico</a></li>
-          <li><a href="consultoria.html">Transformación Digital</a></li>
-          <li><a href="fotografia-video.html">Fotografía y Video</a></li>
-          <li><a href="mantenimiento.html">Mantenimiento Web</a></li>
-          <li><a href="google-ads.html">Google Ads</a></li>
-          <li class="footer-link-all"><a href="servicios.html">Ver todos los servicios →</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="precios.html">Precios</a></li>
-          <li><a href="proyectos.html">Proyectos</a></li>
-          <li><a href="index.html#testimonios">Testimonios</a></li>
-          <li><a href="cotizar.html">Cotizar proyecto</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-contact">
-        <h4>Contacto</h4>
-        <ul class="footer-contact-list footer-contact-list--icons">
-          <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.3-1.4A11 11 0 0 0 12 23a11 11 0 0 0 8.5-19.5zM12 21a9 9 0 0 1-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3A9 9 0 1 1 12 21zm5-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.4.2-.7 0a7.4 7.4 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3a10.3 10.3 0 0 0 4 3.5c.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z"/></svg></span>
-            <a href="https://wa.me/17873202552" target="_blank" rel="noopener">+1 (787) 320-2552</a>
-          </li>
-          <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <span>Lunes a Viernes | 9:00 AM – 5:00 PM</span>
-          </li>
-          <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
-            <a href="mailto:jrawebdesignllc@gmail.com">jrawebdesignllc@gmail.com</a>
-          </li>
-          <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-            <a href="https://maps.app.goo.gl/mAhqV3sJLme3T8aX7" target="_blank" rel="noopener" class="address-block"><span class="address-line">Edificio CIQA Oficina CO-204, Carr Puerto&nbsp;Rico 2</span><span class="address-line">Hormigueros PR 00660</span></a>
-          </li>
-        </ul>
-        <a class="btn btn-primary footer-cta" href="cotizar.html">Cotiza ahora</a>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <div class="footer-bottom-row">
-        <span>© <span data-year></span> JRA WEB DESIGN LLC. Todos los derechos reservados.</span>
-        <span>Este sitio no está afiliado a Meta, Facebook o Instagram.</span>
-      </div>
-      <p class="footer-disclaimer">JRA Web Design LLC ofrece servicios de diseño web, marketing digital y consultoría. Los resultados pueden variar según cada negocio y estrategia. Los precios publicados son en base a orientación y pueden cambiar según la dificultad del proyecto.</p>
-    </div>
-  </footer>
-  <a class="wa-float" href="https://wa.me/17873202552" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.3-1.4A11 11 0 0 0 12 23a11 11 0 0 0 8.5-19.5zM12 21a9 9 0 0 1-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3A9 9 0 1 1 12 21zm5-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.4.2-.7 0a7.4 7.4 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3a10.3 10.3 0 0 0 4 3.5c.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3z"/></svg>
-  </a>
-                        <!-- jra:js -->
+
+                                          <!-- jra:js -->
   <script id="jra-js">
   (function () {
     const pageNode = document.querySelector("[data-page]");
@@ -4225,18 +4158,18 @@
 
   (function () {
     const LOGO_ITEMS = [
-      { image: "/assets/img/logos/787-parfum.jpg", name: "787 Parfum" },
-      { image: "/assets/img/logos/april-luxe.jpg", name: "April Luxe Co." },
-      { image: "/assets/img/logos/costa-sur.jpg", name: "Costa Sur" },
-      { image: "/assets/img/logos/easy-financial.jpg", name: "Easy Financial Realty" },
-      { image: "/assets/img/logos/jeks-ac.jpg", name: "Jek's A/C Services" },
-      { image: "/assets/img/logos/matos-sea.jpg", name: "Matos Sea Voyage" },
-      { image: "/assets/img/logos/blessed-garage.jpg", name: "Blessed Garage PR" },
-      { image: "/assets/img/logos/terramar-surveys.jpg", name: "TerraMAR Surveys" },
-      { image: "/assets/img/logos/lumo-board.jpg", name: "Lumo Board" },
-      { image: "/assets/img/logos/signature-renovations.jpg", name: "Signature Renovations" },
-      { image: "/assets/img/logos/lab-lajas.jpg", name: "Laboratorio Clínico Lajas Arriba" },
-      { image: "/assets/img/logos/jac-abogado.jpg", name: "JAC Abogado Notario" }
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/646372152_1459054512897562_5799123017386702202_n.jpg", name: "787 Parfum" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/717812554_1547736930695986_4552982868388015344_n.jpg", name: "April Luxe Co." },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/718164451_1547738567362489_95267123166498905_n.jpg", name: "Costa Sur" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/718213200_1547745214028491_6382804316546019521_n.jpg", name: "Easy Financial Realty" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/724869932_1554525616683784_507819140998672161_n.jpg", name: "Jek's A/C Services" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/726412257_1554526503350362_6363837927846975198_n.jpg", name: "Matos Sea Voyage" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/642841381_1459055299564150_1769272532286553325_n.jpg", name: "Blessed Garage PR" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/644596841_1459056119564068_5338248389998424866_n.jpg", name: "TerraMAR Surveys" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719491152_1547741530695526_649143756854541499_n.jpg", name: "Lumo Board" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719532685_1547745710695108_1498276708560037989_n.jpg", name: "Signature Renovations" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719110349_1547746267361719_6229056935528473513_n.jpg", name: "Laboratorio Clínico Lajas Arriba" },
+      { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719352057_1547743260695353_6253919463703227343_n.jpg", name: "JAC Abogado Notario" }
     ];
 
     const ARROW_SVG = {
@@ -4498,13 +4431,27 @@
   })();
 
   (function () {
-    const REVIEW_ITEMS = Array.from({ length: 15 }, (_, i) => {
-      const n = String(i + 1).padStart(2, "0");
-      return {
-        image: "/assets/img/reviews/review-" + n + ".jpg",
-        alt: "Testimonio de cliente JRA Web Design " + (i + 1)
-      };
-    });
+    const REVIEW_URLS = [
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489569812_1175453974590952_6730638033054107394_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489593314_1178296094306740_6032816767347823302_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489833018_1177871331015883_6904473955855105114_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/490029063_1178296300973386_9038169571525355017_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495023457_1199358985533784_3393113309288238962_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495126560_1199358795533803_4245262677936695402_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/495311756_1199360552200294_6293805621016396871_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/672264152_1500195705450109_5330384792191732931_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/672270860_1500195688783444_7069718820678618650_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/679277682_1504563235013356_5110929938590289065_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/487426246_1168672821935734_2656195003099454481_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/487794157_1169468178522865_2684743299325325085_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489260505_1178296184306731_7112710379587701310_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489403638_1175187107950972_5998595923726271055_n.jpg",
+      "https://jrawebdesignllc.com/wp-content/uploads/2026/09/489495661_1175453967924286_5918541860525208970_n.jpg"
+    ];
+    const REVIEW_ITEMS = REVIEW_URLS.map((image, i) => ({
+      image,
+      alt: "Testimonio de cliente JRA Web Design " + (i + 1)
+    }));
 
     const ARROW_SVG = {
       prev: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',

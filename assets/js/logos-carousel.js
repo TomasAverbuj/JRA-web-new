@@ -1,17 +1,17 @@
 (function () {
   const LOGO_ITEMS = [
-    { image: "/assets/img/logos/787-parfum.jpg", name: "787 Parfum" },
-    { image: "/assets/img/logos/april-luxe.jpg", name: "April Luxe Co." },
-    { image: "/assets/img/logos/costa-sur.jpg", name: "Costa Sur" },
-    { image: "/assets/img/logos/easy-financial.jpg", name: "Easy Financial Realty" },
-    { image: "/assets/img/logos/jeks-ac.jpg", name: "Jek's A/C Services" },
-    { image: "/assets/img/logos/matos-sea.jpg", name: "Matos Sea Voyage" },
-    { image: "/assets/img/logos/blessed-garage.jpg", name: "Blessed Garage PR" },
-    { image: "/assets/img/logos/terramar-surveys.jpg", name: "TerraMAR Surveys" },
-    { image: "/assets/img/logos/lumo-board.jpg", name: "Lumo Board" },
-    { image: "/assets/img/logos/signature-renovations.jpg", name: "Signature Renovations" },
-    { image: "/assets/img/logos/lab-lajas.jpg", name: "Laboratorio Clínico Lajas Arriba" },
-    { image: "/assets/img/logos/jac-abogado.jpg", name: "JAC Abogado Notario" }
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/646372152_1459054512897562_5799123017386702202_n.jpg", name: "787 Parfum" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/717812554_1547736930695986_4552982868388015344_n.jpg", name: "April Luxe Co." },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/718164451_1547738567362489_95267123166498905_n.jpg", name: "Costa Sur" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/718213200_1547745214028491_6382804316546019521_n.jpg", name: "Easy Financial Realty" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/724869932_1554525616683784_507819140998672161_n.jpg", name: "Jek's A/C Services" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/726412257_1554526503350362_6363837927846975198_n.jpg", name: "Matos Sea Voyage" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/642841381_1459055299564150_1769272532286553325_n.jpg", name: "Blessed Garage PR" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/644596841_1459056119564068_5338248389998424866_n.jpg", name: "TerraMAR Surveys" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719491152_1547741530695526_649143756854541499_n.jpg", name: "Lumo Board" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719532685_1547745710695108_1498276708560037989_n.jpg", name: "Signature Renovations" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719110349_1547746267361719_6229056935528473513_n.jpg", name: "Laboratorio Clínico Lajas Arriba" },
+    { image: "https://jrawebdesignllc.com/wp-content/uploads/2026/09/719352057_1547743260695353_6253919463703227343_n.jpg", name: "JAC Abogado Notario" }
   ];
 
   const ARROW_SVG = {
