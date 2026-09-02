@@ -117,6 +117,7 @@
       const target = tab.getAttribute("data-price-cat");
       catTabs.forEach((t) => t.classList.toggle("is-active", t === tab));
       catPanels.forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-cat-panel") === target));
+      document.dispatchEvent(new CustomEvent("jra:prices-change"));
     });
   });
 
@@ -131,6 +132,7 @@
       const scope = tab.closest("[data-price-cat-panel]") || document;
       scope.querySelectorAll("[data-price-tab]").forEach((t) => t.classList.toggle("is-active", t === tab));
       scope.querySelectorAll("[data-price-panel]").forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-panel") === target));
+      document.dispatchEvent(new CustomEvent("jra:prices-change"));
     });
   });
 
@@ -201,8 +203,10 @@
     });
   });
 
-  (function initProjectsMobileSlider() {
-    const boards = Array.from(document.querySelectorAll(".project-board"));
+  (function initBoardMobileSliders() {
+    const boards = Array.from(
+      document.querySelectorAll(".project-board, .piece-board, .price-grid")
+    );
     if (!boards.length) return;
 
     const ARROW = {
@@ -213,29 +217,37 @@
     boards.forEach((board) => {
       if (board.closest(".projects-carousel")) return;
 
+      const isPieces = board.classList.contains("piece-board");
+      const isPrices = board.classList.contains("price-grid");
+      const cardSel = isPieces ? ".piece-card" : isPrices ? ".price-card" : ".project-card";
+      if (isPrices && board.querySelectorAll(cardSel).length < 2) return;
+
+      const label = isPieces ? "Galería" : isPrices ? "Paquetes y precios" : "Proyectos web";
+      const itemWord = isPieces ? "Imagen" : isPrices ? "Plan" : "Proyecto";
+
       const wrap = document.createElement("div");
-      wrap.className = "projects-carousel";
+      wrap.className = "projects-carousel" + (isPrices ? " projects-carousel--prices" : "");
       wrap.setAttribute("aria-roledescription", "carousel");
-      wrap.setAttribute("aria-label", "Proyectos web");
+      wrap.setAttribute("aria-label", label);
       board.parentNode.insertBefore(wrap, board);
       wrap.appendChild(board);
 
       const prevBtn = document.createElement("button");
       prevBtn.type = "button";
       prevBtn.className = "projects-carousel__arrow projects-carousel__arrow--prev";
-      prevBtn.setAttribute("aria-label", "Proyecto anterior");
+      prevBtn.setAttribute("aria-label", itemWord + " anterior");
       prevBtn.innerHTML = ARROW.prev;
 
       const nextBtn = document.createElement("button");
       nextBtn.type = "button";
       nextBtn.className = "projects-carousel__arrow projects-carousel__arrow--next";
-      nextBtn.setAttribute("aria-label", "Siguiente proyecto");
+      nextBtn.setAttribute("aria-label", "Siguiente " + itemWord.toLowerCase());
       nextBtn.innerHTML = ARROW.next;
 
       const dotsWrap = document.createElement("div");
       dotsWrap.className = "projects-carousel__dots";
       dotsWrap.setAttribute("role", "tablist");
-      dotsWrap.setAttribute("aria-label", "Ir a proyecto");
+      dotsWrap.setAttribute("aria-label", "Ir a " + itemWord.toLowerCase());
 
       wrap.append(prevBtn, nextBtn, dotsWrap);
 
@@ -243,7 +255,7 @@
       let dots = [];
 
       function visibleCards() {
-        return Array.from(board.querySelectorAll(".project-card")).filter(
+        return Array.from(board.querySelectorAll(cardSel)).filter(
           (card) => !card.classList.contains("is-hidden")
         );
       }
@@ -256,7 +268,7 @@
           dot.type = "button";
           dot.className = "projects-carousel__dot";
           dot.setAttribute("role", "tab");
-          dot.setAttribute("aria-label", "Proyecto " + (i + 1));
+          dot.setAttribute("aria-label", itemWord + " " + (i + 1));
           dot.addEventListener("click", () => goTo(i));
           dotsWrap.appendChild(dot);
           return dot;
@@ -312,11 +324,23 @@
         window.requestAnimationFrame(syncFromScroll);
       }, { passive: true });
 
-      document.addEventListener("jra:projects-filter", () => {
-        index = 0;
-        rebuildDots();
-        goTo(0, false);
-      });
+      if (!isPieces && !isPrices) {
+        document.addEventListener("jra:projects-filter", () => {
+          index = 0;
+          rebuildDots();
+          goTo(0, false);
+        });
+      }
+
+      if (isPrices) {
+        document.addEventListener("jra:prices-change", () => {
+          index = 0;
+          window.requestAnimationFrame(() => {
+            rebuildDots();
+            goTo(0, false);
+          });
+        });
+      }
 
       window.addEventListener("resize", () => {
         goTo(index, false);
@@ -324,6 +348,70 @@
 
       rebuildDots();
       goTo(0, false);
+    });
+  })();
+
+  (function initGalleryLightbox() {
+    const triggers = Array.from(document.querySelectorAll("[data-gallery-src]"));
+    if (!triggers.length) return;
+
+    const lb = document.createElement("div");
+    lb.className = "gallery-lightbox";
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.setAttribute("aria-label", "Vista ampliada");
+    lb.innerHTML =
+      '<button type="button" class="gallery-lightbox__close" aria-label="Cerrar">×</button>' +
+      '<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="Anterior">←</button>' +
+      '<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="Siguiente">→</button>' +
+      '<figure class="gallery-lightbox__frame"><img alt=""><figcaption></figcaption></figure>';
+    document.body.appendChild(lb);
+
+    const img = lb.querySelector("img");
+    const caption = lb.querySelector("figcaption");
+    const closeBtn = lb.querySelector(".gallery-lightbox__close");
+    let index = 0;
+
+    function show(i) {
+      index = (i + triggers.length) % triggers.length;
+      const el = triggers[index];
+      const src = el.getAttribute("data-gallery-src");
+      const title =
+        el.getAttribute("data-gallery-title") ||
+        el.querySelector(".piece-label, .piece-quote")?.textContent?.trim() ||
+        "";
+      const alt = el.querySelector("img")?.alt || title;
+      img.src = src;
+      img.alt = alt;
+      caption.textContent = title;
+      lb.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function hide() {
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+      img.removeAttribute("src");
+    }
+
+    triggers.forEach((el, i) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        show(i);
+      });
+    });
+    closeBtn.addEventListener("click", hide);
+    lb.querySelector(".gallery-lightbox__nav--prev").addEventListener("click", () => show(index - 1));
+    lb.querySelector(".gallery-lightbox__nav--next").addEventListener("click", () => show(index + 1));
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) hide();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("is-open")) return;
+      if (e.key === "Escape") hide();
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
     });
   })();
 

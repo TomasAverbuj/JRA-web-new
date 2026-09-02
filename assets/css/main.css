@@ -816,18 +816,34 @@ a.piece-card {
   border: 1px solid transparent;
   transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
-a.piece-card:hover {
+a.piece-card:hover,
+button.piece-card:hover {
   border-color: rgba(29, 185, 141, 0.45);
   transform: translateY(-3px);
+}
+button.piece-card {
+  border: 1px solid transparent;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+button.piece-card:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
 .piece-card {
   position: relative;
   display: block;
-  aspect-ratio: 4 / 3.15;
+  width: 100%;
+  aspect-ratio: 4 / 3.45;
   border-radius: 22px;
   overflow: hidden;
   background: #0d1614;
   isolation: isolate;
+  border: 0;
+  padding: 0;
+  cursor: zoom-in;
+  color: inherit;
+  text-align: left;
+  font: inherit;
 }
 .piece-card img.cover,
 .piece-card > img {
@@ -891,7 +907,7 @@ a.piece-card:hover {
   gap: 32px;
   align-items: end;
 }
-.projects-head h2 { max-width: 16ch; }
+.projects-head h2 { max-width: 28ch; }
 .projects-head p { color: var(--muted); max-width: 42ch; }
 
 .work-filters {
@@ -1858,6 +1874,68 @@ a.piece-card:hover {
 .logo-lightbox__nav--prev { left: 16px; }
 .logo-lightbox__nav--next { right: 16px; }
 
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 10, 0.92);
+  padding: 24px;
+}
+.gallery-lightbox.is-open { display: flex; }
+.gallery-lightbox__frame {
+  max-width: min(1100px, 94vw);
+  max-height: 88vh;
+  margin: 0;
+}
+.gallery-lightbox__frame img {
+  display: block;
+  max-width: 100%;
+  max-height: min(78vh, 900px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.gallery-lightbox__frame figcaption {
+  margin-top: 12px;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-d);
+  font-weight: 650;
+}
+.gallery-lightbox__close,
+.gallery-lightbox__nav {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: rgba(17, 24, 31, 0.92);
+  color: #fff;
+  cursor: pointer;
+}
+.gallery-lightbox__close {
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.gallery-lightbox__close:hover { background: #fff; color: var(--navy); }
+.gallery-lightbox__nav {
+  top: 50%;
+  margin-top: -22px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+}
+.gallery-lightbox__nav:hover { background: var(--teal); color: var(--navy); }
+.gallery-lightbox__nav--prev { left: 16px; }
+.gallery-lightbox__nav--next { right: 16px; }
+
 .price-switch {
   display: inline-flex;
   flex-wrap: wrap;
@@ -2671,7 +2749,9 @@ body.nav-open { overflow: hidden; }
   .hero-stage { padding-bottom: 40px; }
   .hero-stage-inner { min-height: calc(100svh - var(--header-h) - 96px); width: min(calc(100% - 40px), 1180px); }
   .service-grid, .work-grid, .price-grid, .process, .project-board { grid-template-columns: 1fr 1fr; }
-  .projects-carousel .project-board {
+  .projects-carousel .project-board,
+  .projects-carousel .piece-board,
+  .projects-carousel .price-grid {
     display: flex;
     grid-template-columns: none;
   }
@@ -2764,7 +2844,9 @@ body[data-page="cotizar"] .cta-band,
     padding: 0 40px;
     --pc-gap: 14px;
   }
-  .projects-carousel .project-board {
+  .projects-carousel .project-board,
+  .projects-carousel .piece-board,
+  .projects-carousel .price-grid {
     display: flex;
     grid-template-columns: none;
     gap: var(--pc-gap);
@@ -2776,16 +2858,35 @@ body[data-page="cotizar"] .cta-band,
     scrollbar-width: none;
     touch-action: pan-x;
     padding-bottom: 4px;
+    align-items: stretch;
   }
-  .projects-carousel .project-board::-webkit-scrollbar {
+  .projects-carousel .project-board::-webkit-scrollbar,
+  .projects-carousel .piece-board::-webkit-scrollbar,
+  .projects-carousel .price-grid::-webkit-scrollbar {
     display: none;
   }
-  .projects-carousel .project-card {
-    flex: 0 0 min(86vw, 320px);
-    width: min(86vw, 320px);
+  .projects-carousel .project-card,
+  .projects-carousel .piece-card,
+  .projects-carousel .price-card {
+    flex: 0 0 min(88vw, 340px);
+    width: min(88vw, 340px);
     max-width: 100%;
     scroll-snap-align: center;
+  }
+  .projects-carousel .price-card {
+    flex: 0 0 min(86vw, 360px);
+    width: min(86vw, 360px);
+    transform: none;
+  }
+  .projects-carousel--prices .projects-carousel__arrow {
+    top: 140px;
+    margin-top: 0;
+  }
+  .projects-carousel .project-card {
     aspect-ratio: 4 / 4.45;
+  }
+  .projects-carousel .piece-card {
+    aspect-ratio: 4 / 3.55;
   }
   .projects-carousel .project-card.is-hidden {
     display: none;
@@ -2837,6 +2938,13 @@ body[data-page="cotizar"] .cta-band,
   .projects-carousel__dot:hover {
     background: var(--teal);
   }
+  .light .projects-carousel__dot {
+    background: rgba(18, 32, 43, 0.18);
+  }
+  .light .projects-carousel__dot.is-active,
+  .light .projects-carousel__dot:hover {
+    background: var(--teal);
+  }
 }
 
 @media (max-width: 640px) {
@@ -2872,7 +2980,9 @@ body[data-page="cotizar"] .cta-band,
   .service-grid, .work-grid, .price-grid, .process { grid-template-columns: 1fr; }
   .price-grid--duo { grid-template-columns: 1fr; }
   .project-board, .piece-board { grid-template-columns: 1fr 1fr; }
-  .projects-carousel .project-board {
+  .projects-carousel .project-board,
+  .projects-carousel .piece-board,
+  .projects-carousel .price-grid {
     display: flex;
     grid-template-columns: none;
   }
@@ -3003,11 +3113,15 @@ body[data-page="cotizar"] .cta-band,
 @media (max-width: 400px) {
   .header-cta .btn-light { display: none; }
   .project-board, .piece-board { grid-template-columns: 1fr; }
-  .projects-carousel .project-board {
+  .projects-carousel .project-board,
+  .projects-carousel .piece-board,
+  .projects-carousel .price-grid {
     display: flex;
     grid-template-columns: none;
   }
-  .projects-carousel .project-card {
+  .projects-carousel .project-card,
+  .projects-carousel .piece-card,
+  .projects-carousel .price-card {
     flex: 0 0 88vw;
     width: 88vw;
   }
