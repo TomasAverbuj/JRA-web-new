@@ -1,17 +1,41 @@
 (function () {
+  const catTabs = document.querySelectorAll("[data-price-cat]");
+  const catPanels = document.querySelectorAll("[data-price-cat-panel]");
+  catTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.getAttribute("data-price-cat");
+      catTabs.forEach((t) => t.classList.toggle("is-active", t === tab));
+      catPanels.forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-cat-panel") === target));
+    });
+  });
+
   const tabs = document.querySelectorAll("[data-price-tab]");
-  const panels = document.querySelectorAll("[data-price-panel]");
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const target = tab.getAttribute("data-price-tab");
-      tabs.forEach((t) => t.classList.toggle("is-active", t === tab));
-      panels.forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-panel") === target));
+      const scope = tab.closest("[data-price-cat-panel]") || document;
+      scope.querySelectorAll("[data-price-tab]").forEach((t) => t.classList.toggle("is-active", t === tab));
+      scope.querySelectorAll("[data-price-panel]").forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-panel") === target));
     });
   });
 
   document.querySelectorAll("form[data-jra-form]").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const data = new FormData(form);
+      const lines = [
+        "Hola JRA, quiero solicitar un presupuesto.",
+        "",
+        "Negocio: " + (data.get("negocio") || ""),
+        "Email: " + (data.get("email") || ""),
+        "Propietario: " + (data.get("propietario") || ""),
+        "Teléfono: " + (data.get("telefono") || ""),
+        "Industria: " + (data.get("industria") || ""),
+        "Presupuesto: " + (data.get("presupuesto") || ""),
+        "Necesidad: " + (data.get("necesidad") || ""),
+        "Cita presencial: " + (data.get("cita") || ""),
+        "Comentarios: " + (data.get("comentarios") || "")
+      ];
       const box = form.querySelector(".form-success");
       form.querySelectorAll("input, textarea, select, button").forEach((el) => {
         if (el.type !== "hidden") el.disabled = true;
@@ -20,7 +44,7 @@
         box.style.display = "block";
         box.textContent = "Recibimos tu mensaje. Te contactamos en horario laboral (Lun–Vie, 9:00 AM – 5:00 PM).";
       }
-      const wa = "https://wa.me/17873202552?text=" + encodeURIComponent("Hola JRA, quiero cotizar un proyecto.");
+      const wa = "https://wa.me/17873202552?text=" + encodeURIComponent(lines.filter(Boolean).join("\n"));
       setTimeout(() => { window.location.href = wa; }, 900);
     });
   });

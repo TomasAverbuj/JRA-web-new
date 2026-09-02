@@ -229,11 +229,18 @@
           </div>
         </div>
 
-        <div class="price-switch" role="tablist" aria-label="Tipo de servicio">
-          <button type="button" class="is-active" data-price-tab="web">Sitios web</button>
-          <button type="button" data-price-tab="shop">E-commerce</button>
-          <button type="button" data-price-tab="care">Mantenimiento</button>
+        <div class="price-switch" role="tablist" aria-label="Categoría de precios">
+          <button type="button" class="is-active" data-price-cat="web">Precios web</button>
+          <button type="button" data-price-cat="design">Precios diseño</button>
+          <button type="button" data-price-cat="photo">Fotografía</button>
         </div>
+
+        <div class="price-cat-panel is-active" data-price-cat-panel="web">
+          <div class="price-switch price-switch--sub" role="tablist" aria-label="Tipo de servicio web">
+            <button type="button" class="is-active" data-price-tab="web">Sitios web</button>
+            <button type="button" data-price-tab="shop">E-commerce</button>
+            <button type="button" data-price-tab="care">Mantenimiento</button>
+          </div>
 
         <div class="price-panel is-active" data-price-panel="web">
           <div class="price-grid">
@@ -377,6 +384,61 @@
                 <li>Actualizaciones, backup y seguridad</li>
               </ul>
               <a class="btn btn-primary" href="cotizar.html">Adquirir plan</a>
+            </article>
+          </div>
+        </div>
+        </div>
+
+        <div class="price-cat-panel" data-price-cat-panel="design">
+          <div class="price-list-card">
+            <div class="price-list-card__head">
+              <p class="eyebrow">Diseño gráfico</p>
+              <h2>Diseño de artes gráficas</h2>
+              <p>Tarifas por pieza. Ideales para redes, promoción e identidad.</p>
+            </div>
+            <ul class="price-list">
+              <li><span>Arte básica para RRSS</span><strong>$10</strong></li>
+              <li><span>Arte promocional o Flyer</span><strong>$15</strong></li>
+              <li><span>Arte promocional o Flyer 2 caras</span><strong>$20</strong></li>
+              <li><span>Banner de Facebook</span><strong>$20</strong></li>
+              <li><span>Tarjeta de presentación</span><strong>$20</strong></li>
+              <li><span>Vectorización de logotipo</span><strong>$20</strong></li>
+              <li><span>Menú <small>A partir de</small></span><strong>$25</strong></li>
+            </ul>
+            <div class="btn-row" style="margin-top:24px">
+              <a class="btn btn-primary" href="cotizar.html">Cotizar diseño</a>
+              <a class="btn btn-ghost" href="diseno-grafico.html">Ver diseño gráfico</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-cat-panel" data-price-cat-panel="photo">
+          <div class="price-grid price-grid--duo">
+            <article class="price-card featured" data-animate>
+              <span class="tag">Paquete sesión</span>
+              <p class="kicker">Fotografía y video</p>
+              <h3>Sesión de marca</h3>
+              <p class="from">Contenido listo para redes y web</p>
+              <div class="amount">$400</div>
+              <ul>
+                <li>2 horas de sesión</li>
+                <li>Máximo 2 videos de 1–2 minutos</li>
+                <li>Máximo 10 fotos</li>
+                <li>Transportación incluida</li>
+              </ul>
+              <a class="btn btn-primary" href="cotizar.html">Cotizar sesión</a>
+            </article>
+            <article class="price-card" data-animate>
+              <p class="kicker">Más info</p>
+              <h3>Ideal para tu negocio</h3>
+              <p class="from" style="margin-bottom:16px">Fotos y videos pensados para vender, no solo para verse bien.</p>
+              <ul>
+                <li>Contenido para redes sociales</li>
+                <li>Material para tu página web</li>
+                <li>Coordinación con el equipo JRA</li>
+                <li>Entrega editada y lista para publicar</li>
+              </ul>
+              <a class="btn btn-ghost" href="fotografia-video.html">Ver fotografía y video</a>
             </article>
           </div>
         </div>

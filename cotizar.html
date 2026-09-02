@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cotizar — JRA Web Design LLC</title>
-  <meta name="description" content="Cuéntanos tu negocio y recibe una cotización de JRA Web Design. Web desde $299.">
+  <meta name="description" content="Solicita presupuesto a JRA Web Design. Web, diseño, fotografía y más en Puerto Rico.">
   <link rel="icon" href="assets/img/logo/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,10 @@
     <section class="page-hero">
       <div class="hero-waves" data-gradient-waves aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow">Brief</p>
-        <h1>Preguntas para tu página web.</h1>
-        <p>Con esta información preparamos una propuesta precisa. También puedes escribirnos por WhatsApp al (787) 320-2552.</p>
+        <p class="eyebrow">Presupuesto</p>
+        <h1>Solicitud de presupuesto.</h1>
+        <p>Completa estos datos y te preparamos una propuesta. También puedes escribirnos por WhatsApp al (787) 320-2552.</p>
+        <p style="margin-top:10px;font-size:0.9rem;color:var(--muted)">Más adelante este formulario se conectará a Elementor / Fluent Forms en WordPress.</p>
       </div>
     </section>
     <section>
@@ -27,43 +28,34 @@
         <form class="info-card" data-jra-form>
           <div class="form-grid">
             <div class="form-row">
-              <label>Nombre de negocio<input name="negocio" required></label>
-              <label>Nombre del propietario<input name="propietario" required></label>
+              <label>Nombre del negocio<input name="negocio" required></label>
+              <label>Email<input type="email" name="email" required></label>
             </div>
             <div class="form-row">
-              <label>Email<input type="email" name="email" required></label>
+              <label>Nombre del propietario<input name="propietario" required></label>
               <label>Teléfono<input type="tel" name="telefono" required></label>
             </div>
-            <label>Industria / tipo de negocio<input name="industria" required></label>
-            <label>¿Qué productos o servicios ofreces?<textarea name="oferta" required></textarea></label>
-            <label>¿Cómo te gustaría que se llamara el sitio? (.com)<input name="dominio" placeholder="tunegocio.com"></label>
-            <label>¿Tienes imágenes para la página?
-              <select name="imagenes">
-                <option>Sí</option>
-                <option>No</option>
-                <option>Prefiero que las busquen ustedes</option>
+            <label>Industria<input name="industria" required placeholder="Ej. restaurante, bienes raíces, salud..."></label>
+            <label>Presupuesto actual para el proyecto
+              <select name="presupuesto" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="$300">$300</option>
+                <option value="$500">$500</option>
+                <option value="$700">$700</option>
+                <option value="$1000">$1000</option>
+                <option value="$1200 +">$1200 +</option>
               </select>
             </label>
-            <label>Presupuesto mensual para invertir en el negocio<input name="presupuesto"></label>
-            <label>¿Prefieres comunicación por?
-              <select name="canal">
-                <option>WhatsApp</option>
-                <option>Email</option>
-                <option>Llamada</option>
+            <label>¿Qué necesidad tiene actualmente en su negocio?<textarea name="necesidad" required rows="4" placeholder="Cuéntanos qué quieres lograr..."></textarea></label>
+            <label>¿Interesa una cita presencial?
+              <select name="cita" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Oficina de JRA (Hormigueros)">Oficina de JRA (Hormigueros)</option>
+                <option value="Mi local o pueblo">Mi local o pueblo</option>
               </select>
             </label>
-            <label>Plan de interés
-              <select name="plan">
-                <option>Presencia Esencial — desde $299</option>
-                <option>Full Negocios — desde $400</option>
-                <option>Elite Corporativo — desde $600</option>
-                <option>Tienda Pro WordPress — desde $399</option>
-                <option>E-commerce Premium — desde $699</option>
-                <option>Mantenimiento Web Care</option>
-                <option>Aún no lo sé</option>
-              </select>
-            </label>
-            <button class="btn btn-primary" type="submit">Enviar brief</button>
+            <label>Comentarios<textarea name="comentarios" rows="4" placeholder="Algo más que debamos saber..."></textarea></label>
+            <button class="btn btn-primary" type="submit">Enviar solicitud</button>
             <div class="form-success" role="status"></div>
           </div>
         </form>

@@ -108,7 +108,18 @@
     }
 
     if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-    if (backdrop) backdrop.addEventListener("click", closeMenu);
+
+    function closeMenuFromOutside(e) {
+      if (!document.body.classList.contains("nav-open")) return;
+      if (nav && e && e.target && nav.contains(e.target)) return;
+      closeMenu();
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener("click", closeMenu);
+      backdrop.addEventListener("wheel", closeMenu, { passive: true });
+      backdrop.addEventListener("touchstart", closeMenu, { passive: true });
+    }
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
@@ -144,7 +155,11 @@
       if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
     };
     updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("scroll", () => {
+      updateHeader();
+      if (document.body.classList.contains("nav-open")) closeMenu();
+    }, { passive: true });
+    window.addEventListener("wheel", closeMenuFromOutside, { passive: true });
 
     setActive(root);
   }
