@@ -2,7 +2,7 @@
   const REVIEW_ITEMS = Array.from({ length: 15 }, (_, i) => {
     const n = String(i + 1).padStart(2, "0");
     return {
-      image: "assets/img/reviews/review-" + n + ".jpg",
+      image: "/assets/img/reviews/review-" + n + ".jpg",
       alt: "Testimonio de cliente JRA Web Design " + (i + 1)
     };
   });
@@ -248,7 +248,7 @@
     };
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function bootReviewsCarousel() {
     const root = document.querySelector("[data-reviews-carousel]");
     if (!root) return;
 
@@ -258,5 +258,8 @@
     root.addEventListener("reviewcarousel:open", (e) => {
       lightbox.open(e.detail.index);
     });
-  });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootReviewsCarousel);
+  else bootReviewsCarousel();
 })();

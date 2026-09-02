@@ -1,4 +1,115 @@
 (function () {
+  const pageNode = document.querySelector("[data-page]");
+  const page = pageNode ? pageNode.getAttribute("data-page") || "" : "";
+  const nav = document.querySelector("#site-nav");
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const closeBtn = document.querySelector("[data-menu-close]");
+  const backdrop = document.querySelector("[data-nav-backdrop]");
+  const drops = document.querySelectorAll(".nav-drop");
+
+  document.querySelectorAll("[data-nav]").forEach((el) => {
+    if (el.getAttribute("data-nav") === page) el.classList.add("is-active");
+  });
+  if (["servicios", "diseno-web", "diseno-grafico", "consultoria", "fotografia", "mantenimiento", "google-ads"].includes(page)) {
+    const btn = document.querySelector(".nav-drop > button");
+    if (btn) btn.style.color = "#fff";
+  }
+
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+
+  function closeMenu() {
+    if (!nav) return;
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    if (toggle) {
+      toggle.classList.remove("is-active");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menú");
+    }
+    if (backdrop) {
+      backdrop.classList.remove("is-visible");
+      backdrop.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  function openMenu() {
+    if (!nav) return;
+    nav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+    if (toggle) {
+      toggle.classList.add("is-active");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Cerrar menú");
+    }
+    if (backdrop) {
+      backdrop.classList.add("is-visible");
+      backdrop.setAttribute("aria-hidden", "false");
+    }
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      if (nav.classList.contains("is-open")) closeMenu();
+      else openMenu();
+    });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+  function closeMenuFromOutside(e) {
+    if (!document.body.classList.contains("nav-open")) return;
+    if (nav && e && e.target && nav.contains(e.target)) return;
+    closeMenu();
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener("click", closeMenu);
+    backdrop.addEventListener("wheel", closeMenu, { passive: true });
+    backdrop.addEventListener("touchstart", closeMenu, { passive: true });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  drops.forEach((drop) => {
+    const btn = drop.querySelector("button");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      if (window.matchMedia("(max-width: 1100px)").matches) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = drop.classList.contains("open");
+        drops.forEach((d) => d.classList.remove("open"));
+        if (!isOpen) drop.classList.add("open");
+        btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        return;
+      }
+      const open = btn.getAttribute("aria-expanded") === "true";
+      drops.forEach((d) => {
+        const b = d.querySelector("button");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1100) closeMenu();
+  }, { passive: true });
+
+  window.addEventListener("scroll", () => {
+    if (document.body.classList.contains("nav-open")) closeMenu();
+  }, { passive: true });
+  window.addEventListener("wheel", closeMenuFromOutside, { passive: true });
+})();
+
+(function () {
   const catTabs = document.querySelectorAll("[data-price-cat]");
   const catPanels = document.querySelectorAll("[data-price-cat-panel]");
   catTabs.forEach((tab) => {
@@ -8,6 +119,10 @@
       catPanels.forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-price-cat-panel") === target));
     });
   });
+
+  const catFromHash = (location.hash || "").replace("#", "");
+  const hashTab = catFromHash ? document.querySelector('[data-price-cat="' + catFromHash + '"]') : null;
+  if (hashTab) hashTab.click();
 
   const tabs = document.querySelectorAll("[data-price-tab]");
   tabs.forEach((tab) => {
@@ -23,19 +138,25 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const lines = [
-        "Hola JRA, quiero solicitar un servicio.",
-        "",
-        "Negocio: " + (data.get("negocio") || ""),
-        "Email: " + (data.get("email") || ""),
-        "Propietario: " + (data.get("propietario") || ""),
-        "Teléfono: " + (data.get("telefono") || ""),
-        "Industria: " + (data.get("industria") || ""),
-        "Presupuesto: " + (data.get("presupuesto") || ""),
-        "Necesidad: " + (data.get("necesidad") || ""),
-        "Cita presencial: " + (data.get("cita") || ""),
-        "Comentarios: " + (data.get("comentarios") || "")
-      ];
+      const labels = {
+        nombre: "Nombre",
+        negocio: "Negocio",
+        email: "Email",
+        propietario: "Propietario",
+        telefono: "Teléfono",
+        industria: "Industria",
+        presupuesto: "Presupuesto",
+        necesidad: "Necesidad",
+        cita: "Cita presencial",
+        comentarios: "Comentarios",
+        mensaje: "Mensaje"
+      };
+      const lines = ["Hola JRA, quiero solicitar un servicio.", ""];
+      data.forEach((value, key) => {
+        const text = String(value || "").trim();
+        if (!text) return;
+        lines.push((labels[key] || key) + ": " + text);
+      });
       const box = form.querySelector(".form-success");
       form.querySelectorAll("input, textarea, select, button").forEach((el) => {
         if (el.type !== "hidden") el.disabled = true;
@@ -106,7 +227,7 @@
               <button type="button" data-viewer-prev aria-label="Anterior">←</button>
               <button type="button" data-viewer-next aria-label="Siguiente">→</button>
             </div>
-            <a class="btn btn-primary" href="cotizar.html">Quiero una web así</a>
+            <a class="btn btn-primary" href="/cotizar.html">Quiero una web así</a>
           </div>
         </div>
       </div>`;

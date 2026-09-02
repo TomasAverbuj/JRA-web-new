@@ -2,10 +2,12 @@
 Theme Name: JRA Web Design
 Theme URI: https://jrawebdesignllc.com
 Author: JRA Web Design LLC
-Description: Sitio HTML listo para WordPress. Convertir partials/header.html → header.php y partials/footer.html → footer.php.
-Version: 2.1.0
+Description: CSS del sitio. Cada HTML lo lleva incrustado para WordPress (sin CSS adicional ni snippets).
+Version: 2.2.0
 Text Domain: jra-web
 */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700;800&display=swap");
 
 :root {
   --navy: #05080c;
@@ -475,7 +477,7 @@ section { padding: 92px 0; }
   display: flex;
   gap: 56px;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 48s linear infinite;
   align-items: center;
 }
 .marquee img {
@@ -485,11 +487,17 @@ section { padding: 92px 0; }
   object-fit: contain;
   opacity: 0.92;
   transition: opacity 0.3s;
+  flex-shrink: 0;
 }
 .marquee img:hover { opacity: 1; }
+.marquee img[alt="ePumps Solutions"],
+.marquee img[src*="epumps-logo"] {
+  height: 52px;
+  max-width: 160px;
+}
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-25%); }
 }
 
 .service-grid {
@@ -1866,6 +1874,7 @@ a.piece-card:hover {
   cursor: pointer;
   font-family: var(--font-d);
   font-weight: 650;
+  white-space: nowrap;
 }
 .price-switch button.is-active {
   background: var(--teal);
@@ -1939,6 +1948,22 @@ a.piece-card:hover {
   font-size: 1.15rem;
   color: var(--teal);
   white-space: nowrap;
+  flex-shrink: 0;
+}
+.price-list-note {
+  margin: 22px 0 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+.price-list--plain li {
+  justify-content: flex-start;
+  padding: 11px 0;
+}
+.price-list--plain + .btn-row {
+  margin-top: 24px;
 }
 .price-grid--duo {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2692,7 +2717,31 @@ body.nav-open { overflow: hidden; }
 }
 
 body[data-page="contacto"] .cta-band,
-body[data-page="cotizar"] .cta-band { display: none; }
+body[data-page="cotizar"] .cta-band,
+.cta-band--off { display: none !important; }
+
+/* WordPress / Elementor: la página se pega completa, sin CSS del personalizador */
+.elementor-widget-html,
+.elementor-widget-container,
+.entry-content {
+  max-width: none;
+}
+.elementor-widget-html .site-header,
+.entry-content .site-header {
+  width: 100%;
+}
+.site-footer ul,
+.footer-col ul,
+.contact-list,
+.check {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.entry-content a:where(:not(.btn)),
+.elementor-widget-html a:where(:not(.btn)) {
+  text-decoration: none;
+  color: inherit;
+}
 
 .light .process article { background: #fff; border-color: #e4ddd2; }
 .light .process h3 { color: var(--navy); }
@@ -2708,6 +2757,14 @@ body[data-page="cotizar"] .cta-band { display: none; }
     min-height: 280px;
   }
   .service-catalog { grid-template-columns: 1fr; }
+  .price-switch {
+    width: 100%;
+  }
+  .price-switch button {
+    flex: 1 1 calc(50% - 4px);
+    text-align: center;
+    padding: 10px 12px;
+  }
   .hero-stats { grid-template-columns: 1fr; }
   .brand img { height: 40px; }
   .header-cta { gap: 6px; }

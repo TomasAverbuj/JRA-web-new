@@ -1,17 +1,17 @@
 (function () {
   const LOGO_ITEMS = [
-    { image: "assets/img/logos/787-parfum.jpg", name: "787 Parfum" },
-    { image: "assets/img/logos/april-luxe.jpg", name: "April Luxe Co." },
-    { image: "assets/img/logos/costa-sur.jpg", name: "Costa Sur" },
-    { image: "assets/img/logos/easy-financial.jpg", name: "Easy Financial Realty" },
-    { image: "assets/img/logos/jeks-ac.jpg", name: "Jek's A/C Services" },
-    { image: "assets/img/logos/matos-sea.jpg", name: "Matos Sea Voyage" },
-    { image: "assets/img/logos/blessed-garage.jpg", name: "Blessed Garage PR" },
-    { image: "assets/img/logos/terramar-surveys.jpg", name: "TerraMAR Surveys" },
-    { image: "assets/img/logos/lumo-board.jpg", name: "Lumo Board" },
-    { image: "assets/img/logos/signature-renovations.jpg", name: "Signature Renovations" },
-    { image: "assets/img/logos/lab-lajas.jpg", name: "Laboratorio Clínico Lajas Arriba" },
-    { image: "assets/img/logos/jac-abogado.jpg", name: "JAC Abogado Notario" }
+    { image: "/assets/img/logos/787-parfum.jpg", name: "787 Parfum" },
+    { image: "/assets/img/logos/april-luxe.jpg", name: "April Luxe Co." },
+    { image: "/assets/img/logos/costa-sur.jpg", name: "Costa Sur" },
+    { image: "/assets/img/logos/easy-financial.jpg", name: "Easy Financial Realty" },
+    { image: "/assets/img/logos/jeks-ac.jpg", name: "Jek's A/C Services" },
+    { image: "/assets/img/logos/matos-sea.jpg", name: "Matos Sea Voyage" },
+    { image: "/assets/img/logos/blessed-garage.jpg", name: "Blessed Garage PR" },
+    { image: "/assets/img/logos/terramar-surveys.jpg", name: "TerraMAR Surveys" },
+    { image: "/assets/img/logos/lumo-board.jpg", name: "Lumo Board" },
+    { image: "/assets/img/logos/signature-renovations.jpg", name: "Signature Renovations" },
+    { image: "/assets/img/logos/lab-lajas.jpg", name: "Laboratorio Clínico Lajas Arriba" },
+    { image: "/assets/img/logos/jac-abogado.jpg", name: "JAC Abogado Notario" }
   ];
 
   const ARROW_SVG = {
@@ -256,7 +256,7 @@
     };
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function bootLogosCarousel() {
     const root = document.querySelector("[data-logos-carousel]");
     if (!root) return;
 
@@ -266,5 +266,8 @@
     root.addEventListener("logocarousel:open", (e) => {
       lightbox.open(e.detail.index);
     });
-  });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootLogosCarousel);
+  else bootLogosCarousel();
 })();
