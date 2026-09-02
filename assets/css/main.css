@@ -481,9 +481,9 @@ section { padding: 92px 0; }
   align-items: center;
 }
 .marquee img {
-  height: 42px;
+  height: 48px;
   width: auto;
-  max-width: 140px;
+  max-width: 168px;
   object-fit: contain;
   opacity: 0.92;
   transition: opacity 0.3s;
@@ -719,7 +719,7 @@ section { padding: 92px 0; }
   font-size: 0.85rem;
 }
 
-.studio-strip { padding: 28px 0 12px; }
+.studio-strip { padding: 64px 0 56px; }
 .studio-cards {
   display: grid;
   grid-template-columns: 1.15fr 1fr 1fr;
